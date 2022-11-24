@@ -5,6 +5,11 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import {db} from '../lib/firebase-config'
 import Loading from '../components/Loading'
 import NotFound from '../components/NotFound';
+import { Navigate, useNavigate } from "react-router-dom";
+import '../markdown.styles.scss'
+import MarkdownPreviewer from '../components/markdownPreviewer';
+
+
 
 
 function Main() {
@@ -12,17 +17,20 @@ function Main() {
     const  [input, setInput] = useState(``)
     const [exist, setExist] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-
+    let navigate=useNavigate()
     useEffect(() => {
       getData();
     }, [])
     
+    function editClickHandler(e) {
+        e.preventDefault();
+        navigate('./edit')
+    }
     async function getData () {
-        let temp
+        let temp;
         const dataCollectionRef=collection(db,'data');
         let que = query(dataCollectionRef,where("docData.customLink","==",customLink));
         let querySnapshot= await getDocs(que);
-        console.log(querySnapshot)
         if(querySnapshot.docs.length!=0) {
           setExist(true)
           querySnapshot.forEach((doc) =>
@@ -30,22 +38,20 @@ function Main() {
                temp=doc.data();
             }
           );
-          console.log(temp)
           setInput(temp.docData.body)
         }
-        console.log(input)
         setIsLoading(false) 
 
     }
-    return isLoading?(<Loading/>):(exist?(<><div className='text-area-container'>  
-      <div className='preview-ta' id="main-preview-ta">
-              <ReactMarkdown style={{ whiteSpace: 'pre-wrap' }}>{input}</ReactMarkdown>
+    return isLoading?(<Loading/>):(exist?(
+      <>
+      <div className='text-area-container'>
+         <MarkdownPreviewer input={input}/>
       </div>
-      </div>
+      <center><button type="submit" className='edit-button' onClick={editClickHandler}>Edit</button></center><br/>
       </>
-        
-      ):(<center>{input}</center>) )
+      ):(<center><NotFound/></center>) )
         
 }
 
-export default Main
+export default Main 

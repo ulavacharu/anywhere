@@ -46,7 +46,7 @@ function How() {
   
     return (
       <div className="how-page">
-        <center><h1>A Quick Guide to Markdown</h1></center>
+        <center><h1>A Quick Guide to Markdown [Not Responsive]</h1></center>
   
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>

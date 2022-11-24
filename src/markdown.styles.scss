@@ -1,95 +1,111 @@
-/*Thanks to https://github.com/markdowncss/ 
-  https://github.com/mrmrs/fluidity */
+/*
+  font-family: Menlo, Monaco, "Courier New", monospace;
+    color: #01ff70,2ecc40;
+    */
 .preview-ta {
-    font-size: large !important;
-    word-spacing: 3px;
-    a,
-    a:visited {
-      text-decoration: underline;
-    }
-  
-    pre,
-    blockquote {
-      border: 1px solid #999;
-      page-break-inside: avoid;
-    }
-  
-    thead {
-      display: table-header-group;
-    }
-  
-    tr,
-    img {
-      page-break-inside: avoid;
-    }
-  
-    img {
-      max-width: 100% !important;
-    }
-  
-    h2,
-    h3 {
-      page-break-after: avoid;
-    }
-
-  
-  pre,
+      font-size: large !important;
+      word-spacing: 3px;
+      pre,
   code {
     font-family: Menlo, Monaco, "Courier New", monospace;
+
   }
-  
+
   pre {
-    padding: .5rem;
+    border:2px solid #333;
     line-height: 1.25;
     overflow-x: scroll;
   }
-  
-  a,
-  a:visited {
-    color: #3498db;
+  th {
+    border-bottom: 2px solid #01ff70;
   }
-  
-  a:hover,
-  a:focus,
-  a:active {
-    color: #2980b9;
+  td {
+    border-bottom: 1px solid #2ecc40;
   }
-  
-  .modest-no-decoration {
-    text-decoration: none;
+
+  tr:nth-child(2n) {
+    background-color: #161b22;
   }
-  
-  
-    font-size: 10px;
-  
-  
+  thead {
+    border-bottom:1px solid #01ff70;
+  }
+  html {
+    font-size: 12px;
+  }
+
   @media screen and (min-width: 32rem) and (max-width: 48rem) {
-   
+    html {
       font-size: 15px;
-    
+    }
   }
-  
+
   @media screen and (min-width: 48rem) {
-  
+    html {
       font-size: 16px;
-    
+    }
   }
-  
+
   body {
     line-height: 1.85;
   }
-  
+
   p,
-  .modest-p {
+  .retro-p {
+    font-size: 1rem;
     margin-bottom: 1.3rem;
   }
-  
+
+  h1,
+  .retro-h1,
+  h2,
+  .retro-h2,
+  h3,
+  .retro-h3,
+  h4,
+  .retro-h4 {
+    margin: 1.414rem 0 0;
+    font-weight: inherit;
+    line-height: 1.42;
+  }
+
+  h1,
+  .retro-h1 {
+    margin-top: 0;
+    font-size: 3.998rem;
+  }
+
+  h2,
+  .retro-h2 {
+    font-size: 2.827rem;
+  }
+
+  h3,
+  .retro-h3 {
+    font-size: 1.999rem;
+  }
+
+  h4,
+  .retro-h4 {
+    font-size: 1.414rem;
+  }
+
+  h5,
+  .retro-h5 {
+    font-size: 1.121rem;
+  }
+
+  h6,
+  .retro-h6 {
+    font-size: .88rem;
+  }
+
   small,
-  .modest-small {
+  .retro-small {
     font-size: .707em;
   }
-  
-  
+
+  /* https://github.com/mrmrs/fluidity */
+
   img,
   canvas,
   iframe,
@@ -97,47 +113,59 @@
   svg,
   select,
   textarea {
+    resize: none; 
     max-width: 100%;
   }
-  
-  @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
-  
-  @import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
-  
-  
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: Arimo, Helvetica, sans-serif;
+
+  html,
+  body {
+    background-color: #222;
+    min-height: 100%;
   }
-  
-  h1,
-  h2,
-  h3 {
-    border-bottom: 2px solid rgb(206, 201, 201) ;
-    margin-bottom: 1.15rem;
-    padding-bottom: .5rem;
-    text-align: center;
+
+  html {
+    font-size: 18px;
   }
-  
+
+  body {
+    color: #fafafa;
+    font-family: "Courier New";
+    line-height: 1.45;
+    margin: 6rem auto 1rem;
+    max-width: 48rem;
+    padding: .25rem;
+  }
+
+  pre {
+    background-color: #333;
+  }
+
   blockquote {
-    border-radius: 5px;
-    background-color: rgb(85, 85, 85);
-    border: none;
-    border-left: 8px solid rgb(206, 201, 201);
-    padding: 1rem;
+    background-color: rgb(38,38,38);;
+    border-left: 3px solid #01ff70;
+    padding-left: 1rem;
   }
-  #syntax-pre-div {
-      border-radius:5px;
+}
+
+.linenumber {
+  padding-left:5px;
+  border-left:5px solid #01ff70 
+}
+
+.how-page {
+
+  tr:nth-child(2n) {
+    background-color: #161b22;
   }
-  pre,code {
-    background-color: none;
-    border: none;
-    border-left: 20 px solid rgb(107, 105, 105);
+  table {
+    border-collapse: collapse;
   }
-  white-space:pre-wrap;
+  th, td {
+    padding: 10px;
+    border: 1px solid black;
+   }
+   th {
+    color: #01ff70;
+    padding:20px
+   }
 }
